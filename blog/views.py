@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -49,6 +49,8 @@ def afterlogin(request):
         return render(request, 'blog/student.html')
     if is_teacher(request.user):
         return render(request, 'blog/teacher.html')
+    else:
+        return redirect('login/')
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
@@ -81,6 +83,10 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+def article(request):
+    pass
+def news(request):
+    pass
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
