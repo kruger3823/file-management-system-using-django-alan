@@ -48,8 +48,8 @@
                     
                     {% else %}
                     <a href="{% url 'login' %} " class="btn text-white m-2"><i class="fas fa-user-tie"></i> Login</a>
-                   
-                    <a href="{% url 'register' %} " class="btn text-white m-2"> <i class="fas fa-sign-in-alt"></i> Sign Up</a>
+                    <a href="{% url 'student_register' %} " class="btn text-white m-2"> <i class="fas fa-sign-in-alt"></i>Student Sign Up</a>
+                    <a href="{% url 'teacher_register' %} " class="btn text-white m-2"> <i class="fas fa-sign-in-alt"></i>Teacher Sign Up</a>
                     {% endif %}
                   
                 </div>
