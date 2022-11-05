@@ -3,8 +3,20 @@ from django.contrib.auth.models import User
 from PIL import Image
 
 
+DEPARTMENT_CHOICES =(
+    ("mca", "MCA"),
+    ("eee", "EEE"),
+    ("cse", "CSE"),
+    ("ncc", "NCC"),
+)
+  
+class Department(models.Model):
+    dep_name = models.CharField(max_length=200,choices=DEPARTMENT_CHOICES)
+    def __str__(self):
+        return self.dep_name 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department,on_delete=models.CASCADE,null=True)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
     def __str__(self):
@@ -19,3 +31,4 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
