@@ -39,6 +39,16 @@ def getfile(request):
    return serve(request, 'File')
 
 
+def is_student(user):
+    return user.groups.filter(name="STUDENT").exists()
+def is_teacher(user):
+    return user.groups.filter(name="TEACHER").exists()
+
+def afterlogin(request):
+    if is_student(request.user):
+        return render(request, 'blog/student.html')
+    if is_teacher(request.user):
+        return render(request, 'blog/teacher.html')
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'  # <app>/<model>_<viewtype>.html
