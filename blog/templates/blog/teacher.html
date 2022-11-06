@@ -1,7 +1,7 @@
 {% extends "blog/baseteacher.html" %}
 {% block content %}
 <h1>Teacher</h1>
-    {% for post in posts %}
+    {% for post in article %}
    
       <div class="jumbotron mt-3 bg-white shadow-lg">
       <article class="media content-section shadow">
@@ -9,7 +9,7 @@
         </a>
         <div class="media-body">
           <div class="article-metadata d-flex justify-content-between">
-            <a class="mr-2 " href="{% url 'user-posts' post.author.username  %}"><h3>{{ post.author }}</h3></a>
+            <a class="mr-2 " href="{% url 'user-article' post.author.username  %}"><h3>{{ post.author }}</h3></a>
               <small class="text-muted">{{ post.date_upload|date:"F d, Y" }}</small>
 
           </div>

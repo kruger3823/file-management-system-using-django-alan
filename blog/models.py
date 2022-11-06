@@ -37,7 +37,7 @@ class News(models.Model):
 		return extension
 
 	def get_absolute_url(self):
-		return reverse('post-detail', kwargs={'pk': self.pk})
+		return reverse('news-detail', kwargs={'pk': self.pk})
 
 class Articles(models.Model):
 	title = models.CharField(max_length=100)
@@ -54,6 +54,6 @@ class Articles(models.Model):
 		return extension
 
 	def get_absolute_url(self):
-		return reverse('post-detail', kwargs={'pk': self.pk})
+		return reverse('article-detail', kwargs={'pk': self.pk})
 
         
