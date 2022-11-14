@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import url
 from .views import (
     PostListView,
     PostDetailView,
@@ -25,6 +26,9 @@ from . import views
 
 urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),
+    path('afterlogin/', views.afterlogin, name='blog-index'),
+
+    path('blog-home', PostListView.as_view(), name='blog-home'),
     path('user/<str:username>', UserPostListView.as_view(), name='user-posts'),
     path('userarticle/<str:username>', UserArticleListView.as_view(), name='user-article'),
     path('articleviewstud/', ViewArticleListView.as_view(), name='view-article-student'),
@@ -47,4 +51,8 @@ urlpatterns = [
     path('media/Files/<int:pk>',PostDeleteView.as_view(),name='post-delete' ),
     path('search/',views.search,name='search' ),
     path('about/', views.about, name='blog-about'),
+
+
+
+    url(r'^password/$', views.change_password, name='change_password'),
 ]

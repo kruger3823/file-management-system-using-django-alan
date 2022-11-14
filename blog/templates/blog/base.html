@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
     <link rel="stylesheet" href="{% static 'blog/main.css' %}">
     {% if title %}
-        <title>File Management - {{title}}</title>
+        <title>College Social Network - {{title}}</title>
     {% else %}
-        <title>File Management</title>
+        <title>College Social Network</title>
     {% endif %}
 
 </head>
   <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand font-weight-bold" href="{% url 'blog-home' %}"><i class="fas fa-file"></i> File Management</a>
+                <a class="navbar-brand font-weight-bold" href="{% url 'blog-home' %}"><i class="fas fa-file"></i> College Social Network</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -48,6 +48,7 @@
                     
                     <a href="{% url 'profile' %} " class="btn text-white m-2"><i class="fas fa-user"></i> {{ user.username }}</a>
                     <a href="{% url 'logout' %} " class="btn text-white m-2"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                     <a href="{% url 'change_password' %} " class="btn text-white m-2"><i class="fas fa-sign-out-alt"></i>Change password</a>
                     
                     {% else %}
                     <a href="{% url 'login' %} " class="btn text-white m-2"><i class="fas fa-user-tie"></i> Login</a>

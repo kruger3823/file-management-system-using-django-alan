@@ -1,0 +1,26 @@
+
+<style>
+body{
+
+            background-color: azure;
+        }
+  #box1{
+  border: 2px dotted rgb(10, 8, 2);
+    background-color: bisque;
+    width: 40%;
+    height: 30%;
+     padding: 10px;
+     position:center;
+
+  }
+
+</style>
+<center><body>
+<h1>CHANGE PASSWORD</h1><br>
+
+<div id="box1"><form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Save changes</button>
+</form></div>
+</body></center>

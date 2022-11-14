@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
     <link rel="stylesheet" href="{% static 'blog/main.css' %}">
     {% if title %}
-        <title>File Management - {{title}}</title>
+        <title>College Social Network - {{title}}</title>
     {% else %}
-        <title>File Management</title>
+        <title>College Social Network</title>
     {% endif %}
 
 </head>
@@ -49,6 +49,7 @@
                     <a href="{% url 'post-create-news' %} " class="btn text-white m-2"><i class="fas fa-user-edit"></i>News</a>
                     <a href="{% url 'profile' %} " class="btn text-white m-2"><i class="fas fa-user"></i> {{ user.username }}</a>
                     <a href="{% url 'logout' %} " class="btn text-white m-2"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    <a href="{% url 'change_password' %} " class="btn text-white m-2"><i class="fas fa-sign-out-alt"></i>Change password</a>
                     
                     {% else %}
                     <a href="{% url 'login' %} " class="btn text-white m-2"><i class="fas fa-user-tie"></i> Login</a>
